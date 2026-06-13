@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>💖 For Sumaya 💖</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap');
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #0a0010, #000000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+  color: white;
+}
+
+/* stars */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  opacity: 0.5;
+}
+
+/* card */
+.card {
+  text-align: center;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(255,0,150,0.3);
+  width: 80%;
+  max-width: 600px;
+  z-index: 10;
+}
+
+/* title */
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #ff4da6;
+  text-shadow: 0 0 20px #ff4da6;
+}
+
+/* text */
+p {
+  font-size: 1rem;
+  white-space: pre-line;
+  min-height: 280px;
+}
+
+/* buttons container */
+.btn-box {
+  margin-top: 20px;
+}
+
+/* buttons */
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+#yes {
+  background: #ff2e93;
+  color: white;
+  box-shadow: 0 0 20px #ff2e93;
+}
+
+#no {
+  background: white;
+  color: #ff2e93;
+  position: relative;
+}
+
+/* hearts */
+.heart {
+  position: absolute;
+  color: #ff4da6;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(100vh);}
+  100% {transform: translateY(-10vh);}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+  <source src="i_wanna_be_yours.mp3" type="audio/mp3">
+</audio>
+
+<div class="card">
+  <h1>❤️ For Sumaya ❤️</h1>
+
+  <p id="text"></p>
+
+  <div class="btn-box">
+    <button class="btn" id="yes" onclick="yes()">Yes 💖</button>
+    <button class="btn" id="no" onmouseover="run()">No 💔</button>
+  </div>
+</div>
+
+<script>
+
+/* stars */
+for(let i=0;i<80;i++){
+  let s=document.createElement("div");
+  s.className="star";
+  s.style.top=Math.random()*100+"vh";
+  s.style.left=Math.random()*100+"vw";
+  document.body.appendChild(s);
+}
+
+/* message */
+let msg = `There's something I've wanted to tell you for a long time.
+
+Sumaya, if you put together all the reels I've ever sent you, the answer is simple: talking to you always makes my day better. Your messages make me smile, and you've become someone very special to me.
+
+I don't want to keep my feelings hidden anymore, so here it is...
+
+I really like you.
+
+I'm not expecting any particular answer, and I don't want to make things awkward. I just wanted to be honest about how I feel.
+
+If you feel the same way, I would be the happiest person alive.
+
+And if you don't, I'll still respect you and appreciate having you in my life.
+
+No matter what happens, thank you for being such an amazing person.
+
+I really love you, Sumaya. ❤️🥹
+
+Will you be mine? 🫂💖
+
+Forever Yours,
+Riyaan ❤️`;
+
+let i = 0;
+document.getElementById("text").textContent = "";
+
+function type(){
+  if(i < msg.length){
+    document.getElementById("text").textContent += msg.charAt(i);
+    i++;
+    setTimeout(type, 18);
+  }
+}
+type();
+
+/* NO button playful move */
+function run(){
+  let btn = document.getElementById("no");
+
+  let x = (Math.random() * 20 - 10);
+  let y = (Math.random() * 20 - 10);
+
+  btn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+/* YES */
+function yes(){
+  document.body.innerHTML = `
+    <h1 style="color:#ff4da6; text-align:center; margin-top:40vh;">
+      💖 She said YES 💖
+    </h1>
+    <p style="text-align:center;">You just made my world complete ❤️</p>
+  `;
+
+  let music=document.getElementById("music");
+  music.play().catch(()=>{});
+}
+
+/* music start on click */
+document.body.addEventListener("click",()=>{
+  document.getElementById("music").play();
+});
+</script>
+
+</body>
+</html>
